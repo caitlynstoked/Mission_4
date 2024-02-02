@@ -29,14 +29,22 @@ do
 
     do
     {
-        Console.Write("Horizontal (0-2):");
-    } while (!int.TryParse(Console.ReadLine(), out position1) || position1 < 0 || position1 > 2);
+        Console.Write("Please enter an X value (0-2): ");
+        if (!int.TryParse(Console.ReadLine(), out position1) || position1 < 0 || position1 > 2)
+        {
+            Console.WriteLine("Please enter a valid numeric value between 0 and 2.");
+        }
+    } while (position1 < 0 || position1 > 2);
 
     do
     {
-        Console.Write("Vertical (0-2):");
-    } while (!int.TryParse(Console.ReadLine(), out position2) || position2 < 0 || position2 > 2);
-  
+        Console.Write("Please enter a Y value (0-2): ");
+        if (!int.TryParse(Console.ReadLine(), out position2) || position2 < 0 || position2 > 2)
+        {
+            Console.WriteLine("Please enter a valid numeric value between 0 and 2.");
+        }
+    } while (position2 < 0 || position2 > 2);
+
 
 
 
