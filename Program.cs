@@ -9,10 +9,10 @@ int turns = 1;
 
 Console.WriteLine("Welcome to tic tac toe!");
 
-string position1 = "";
-string position2 = "";
+int position1 = 0;
+int position2 = 0;
 List<string> board = new List<string>();
-Boolean winner = false;
+Boolean winner = false; //this will be set equal to the check for win function
 
 do 
 {
@@ -25,17 +25,36 @@ do
         sign = "0"; 
     }
 
-    Console.WriteLine("Horizontal (0-2)");
-    position1 = Console.ReadLine();
 
-    Console.WriteLine("Vertical (0-2)");
-    position2 = Console.ReadLine();
+
+    do
+    {
+        Console.Write("Horizontal (0-2):");
+    } while (!int.TryParse(Console.ReadLine(), out position1) || position1 < 0 || position1 > 2);
+
+    do
+    {
+        Console.Write("Vertical (0-2):");
+    } while (!int.TryParse(Console.ReadLine(), out position2) || position2 < 0 || position2 > 2);
+  
+
+
+
 
     string PlayerChoice = position1 + ", " + position2;
 
     board.Add(PlayerChoice);
 
+    // call the print board function
     turns++;
+    if (turns == 9)
+    {
+        Console.WriteLine("\nThe board is full!\nGood game, there is no winner.");
+        return;
+    }
+
+
+    Console.WriteLine(sign);
 } while (winner = false);
 
 
