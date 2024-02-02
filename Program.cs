@@ -16,6 +16,15 @@ Boolean winner = false;
 
 do 
 {
+    if (turns % 2 == 1)
+    {
+        sign = "X";
+    }
+    else
+    {
+        sign = "0"; 
+    }
+
     Console.WriteLine("Horizontal (0-2)");
     position1 = Console.ReadLine();
 
@@ -24,30 +33,21 @@ do
 
     string PlayerChoice = position1 + ", " + position2;
 
-    board.Add(PlayerChoice); 
+    board.Add(PlayerChoice);
+
+
+    turns++;
 } while (winner = false);
 
 
 
+//char[,] board = new char[3, 3];
 
 
 
 
-char[,] board = new char[3, 3];
 
 
-if (turns % 2 == 1)
-{
-    sign = "X";
-}
-else
-{
-    sign = "0"; 
-}
-
-
-
-//rest of the code
 
 
 
@@ -58,8 +58,7 @@ else
 
 //new value = sign
 //prints out board
-
-turns++;
+;
 
 
 
