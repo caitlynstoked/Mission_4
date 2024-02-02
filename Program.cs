@@ -35,7 +35,6 @@ do
 
     board.Add(PlayerChoice);
 
-
     turns++;
 } while (winner = false);
 
