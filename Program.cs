@@ -1,13 +1,17 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+//Tic Tac Toe Assignment
+
+// team 2-8
+// Cristian Cruz, Caitlyn Stokes, Perla Valdovinos, Asante Laryea-Akrong
 using Mission_4;
 using System.Reflection.Metadata;
-checkWinner cw = new checkWinner();
+Supporting s = new Supporting();
 
-
+//welcome user to the game
 Console.WriteLine("Welcome to tic tac toe!\n");
 Console.WriteLine("Enter the first value for the vertical axis and the second value for the horizontal axis.\nThe values range from 0 to 2.\nGood luck!!\n");
-
+// defined variables
 int position1 = 0;
 int position2 = 0;
 string sign = "";
@@ -22,7 +26,6 @@ char[,] boardArray = {
             { ' ', ' ', ' ' }
         };
 
-BoardClass bc = new BoardClass();
 
 do
 {
@@ -64,8 +67,6 @@ do
     while (chosenPositions.Contains(playerChoice))
     {
         Console.WriteLine("Error: Position already chosen. Please choose a new position.");
-        Console.WriteLine("ERROR IS HERE");
-
         // Ask for new coordinates
         do
         {
@@ -87,55 +88,30 @@ do
 
         playerChoice = position1 + ", " + position2;
 
-        //Console.WriteLine(playerChoice);
     }
 
 
-
+    //update the player choice array
     chosenPositions.Add(playerChoice);
     board.Add(playerChoice);
 
-    foreach (string boardTurns in board)
-    {
-        Console.WriteLine(boardTurns);
-
-    }
-
-    // call the print board function
+    //if they run out of turns then alert the users and end the game
     turns++;
-    if (turns == 9)
+    if (turns == 10)
     {
         Console.WriteLine("\nThe board is full!\nGood game, there is no winner.");
+        s.DefineMoves(boardArray, board, sign);
+        s.PrintTicTacToe(boardArray);
         return;
     }
 
-
-    Console.WriteLine(sign);
-
-    // Initialize an empty 3x3 board
-   
-
-    bc.DefineMoves(boardArray, board, sign);
-    bc.PrintTicTacToe(boardArray);
     
-} while (cw.CheckWinner(boardArray) == false);
+    Console.WriteLine(" ");
+    //call the supporting class functions to print the board
+    s.DefineMoves(boardArray, board, sign);
+    s.PrintTicTacToe(boardArray);
+    
+} while (s.CheckWinner(boardArray) == false);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//new value = sign
-//prints out board
+//thank you message
+Console.WriteLine("\nThanks for playing!!!!");
