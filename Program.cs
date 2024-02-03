@@ -2,9 +2,11 @@
 
 using Mission_4;
 using System.Reflection.Metadata;
+checkWinner cw = new checkWinner();
 
 
 Console.WriteLine("Welcome to tic tac toe!\n");
+Console.WriteLine("Enter the first value for the vertical axis and the second value for the horizontal axis.\nThe values range from 0 to 2.\nGood luck!!\n");
 
 int position1 = 0;
 int position2 = 0;
@@ -12,7 +14,6 @@ string sign = "";
 int turns = 1;
 List<string> board = new List<string>();
 List<string> chosenPositions = new List<string>(); // Keep track of chosen positions
-Boolean winner = false; //this will be set equal to the check for win function
 string playerChoice = "";
 string playerName = "";
 char[,] boardArray = {
@@ -117,7 +118,7 @@ do
     bc.DefineMoves(boardArray, board, sign);
     bc.PrintTicTacToe(boardArray);
     
-} while (winner == false);
+} while (cw.CheckWinner(boardArray) == false);
 
 
 
