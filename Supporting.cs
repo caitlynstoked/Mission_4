@@ -15,32 +15,32 @@ namespace Mission_4
         { 
             Console.WriteLine(board);
         }*/
-  
-       /*StartCOmmentpublic string ChatTicTacPrint(char[,] board)
-        {
-            Console.WriteLine("This is the Tic Tac Toe Board:");
 
-            string A = board[0, 0].ToString();
-            string B = board[0, 1].ToString();
-            string C = board[0, 2].ToString();
-            string D = board[1, 0].ToString();
-            string E = board[1, 1].ToString();
-            string F = board[1, 2].ToString();
-            string G = board[2, 0].ToString();
-            string H = board[2, 1].ToString();
-            string I = board[2, 2].ToString();
+        /*StartCOmmentpublic string ChatTicTacPrint(char[,] board)
+         {
+             Console.WriteLine("This is the Tic Tac Toe Board:");
 
-            string printBoard = $"{A} | {B} | {C}\n-+-+-\n{D} | {E} | {F}\n-+-+-\n{G} | {H} | {I}";
+             string A = board[0, 0].ToString();
+             string B = board[0, 1].ToString();
+             string C = board[0, 2].ToString();
+             string D = board[1, 0].ToString();
+             string E = board[1, 1].ToString();
+             string F = board[1, 2].ToString();
+             string G = board[2, 0].ToString();
+             string H = board[2, 1].ToString();
+             string I = board[2, 2].ToString();
 
-            Console.WriteLine(printBoard);
+             string printBoard = $"{A} | {B} | {C}\n-+-+-\n{D} | {E} | {F}\n-+-+-\n{G} | {H} | {I}";
 
-            return printBoard;
-        }
-       */
+             Console.WriteLine(printBoard);
+
+             return printBoard;
+         }
+        */
 
         public string TicTacPrint()//pass the array gathered from the driver team
         {
-           // board = p.BoardPositions(); //calling from the program
+            // board = p.BoardPositions(); //calling from the program
 
             Console.WriteLine(" This is the Tic Tac Toe Board:");
 
@@ -67,40 +67,63 @@ namespace Mission_4
 
             //3return the board again and the guys will ask y to go 
 
-        } 
-        public string TicTacWin(Array board)
+        }
+        static char CheckWinner(char[,] board)
         {
-            bool someoneWon = false;
-            string nameOfWinner = "";
+            bool isWinner = false;
+            string winnerName = "";
 
 
-            for (int i = 0; i < 3; i++)
+            do
             {
-                if (board[i, 0] == board[i, 1] && board[i, 1] == board[i, 2] && board[i, 0] != ' ')
-                    return board[i, 0];  // Winner in a row
 
-                if (board[0, i] == board[1, i] && board[1, i] == board[2, i] && board[0, i] != ' ')
-                    return board[0, i];  // Winner in a column
+                for (int i = 0; i < 3; i++)
+                {
+                    //winner check in a row
+                    if (board[i, 0] == board[i, 1] && board[i, 1] == board[i, 2] && board[i, 0] != ' ')
+                    {
+                        // nameOfWinner = Console.WriteLine($"The Winner is: {board[i, 0]}!!");
+                        isWinner = true;
+                        winnerName = board[i, 0].ToString();
+                        Console.WriteLine($"The winner is: {winnerName}!!");
+
+                        return board[i, 0];
+                    }
+
+                    //winner check for column
+                    if (board[0, i] == board[1, i] && board[1, i] == board[2, i] && board[0, i] != ' ')
+                    {
+                        isWinner = true;
+                        winnerName = board[0, i].ToString();
+                        Console.WriteLine($"The winner is: {winnerName}!!");
+
+                        return board[0, i];
+
+                    }
+
+                    //check for diagnal
+                    if (board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2] && board[0, 0] != ' ')
+                    {
+                        isWinner = true;
+                        winnerName = board[0, 0].ToString();
+                        Console.WriteLine($"The winner is: {winnerName}!!");
+
+                        return board[0, 0];
+                    }
+
+                    if (board[0, 2] == board[1, 1] && board[1, 1] == board[2, 0] && board[0, 2] != ' ')
+                    {
+                        isWinner = true;
+                        winnerName = board[0, 2].ToString();
+                        Console.WriteLine($"The winner is: {winnerName}!!");
+                        return board[0, 2];
+                    }
+                    else
+                    {
+                        Console.WriteLine("There was no winners, try again next time!");
+                        return ' ';
+                    }
+
+                } while (isWinner = false);
             }
-
-           /* do
-            {
-                if ([a] (0,0) & (0,1) & (0,2))
-                {
-                    
-                    
-                }
-                else
-                {
-
-                }
-
-            } while (!someoneWon);
-
-            return nameOfWinner
-        }*/
-        
-
-
-    }
-}
+}      
