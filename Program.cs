@@ -1,10 +1,6 @@
-﻿//this is proof of a git push/pull
+﻿// See https://aka.ms/new-console-template for more information
+
 using Mission_4;
-
-Supporting s = new Supporting();
-
-// See https://aka.ms/new-console-template for more information
-
 using System.Reflection.Metadata;
 
 
@@ -20,7 +16,9 @@ Boolean winner = false; //this will be set equal to the check for win function
 string playerChoice = "";
 string playerName = "";
 
-do 
+BoardClass bc = new BoardClass();
+
+do
 {
     //assign a variable to the correct player
     if (turns % 2 == 1)
@@ -80,7 +78,9 @@ do
             }
         } while (position2 < 0 || position2 > 2);
 
-        playerChoice = position1 + ", " + position2;
+        //playerChoice = position1 + "" + position2;
+
+        Console.WriteLine(playerChoice);
     }
 
 
@@ -104,14 +104,35 @@ do
 
 
     Console.WriteLine(sign);
+
+    // Initialize an empty 3x3 board
+    char[,] boardArray = {
+            { ' ', ' ', ' ' },
+            { ' ', ' ', ' ' },
+            { ' ', ' ', ' ' }
+        };
+
+    bc.DefineMoves(boardArray, board, sign);
+    bc.PrintTicTacToe(boardArray);
+    
 } while (winner == false);
 
-//char[,] board = new char[3, 3];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //new value = sign
 //prints out board
-;
-
-
-s.TicTacPrint();
-

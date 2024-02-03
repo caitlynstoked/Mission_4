@@ -16,7 +16,7 @@ namespace Mission_4
             Console.WriteLine(board);
         }*/
   
-       /*StartCOmmentpublic string ChatTicTacPrint(char[,] board)
+       public string ChatTicTacPrint(char[,] board)
         {
             Console.WriteLine("This is the Tic Tac Toe Board:");
 
@@ -36,9 +36,9 @@ namespace Mission_4
 
             return printBoard;
         }
-       */
+       
 
-        public string TicTacPrint()//pass the array gathered from the driver team
+        /*public string TicTacPrint()//pass the array gathered from the driver team
         {
            // board = p.BoardPositions(); //calling from the program
 
