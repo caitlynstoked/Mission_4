@@ -15,6 +15,11 @@ List<string> chosenPositions = new List<string>(); // Keep track of chosen posit
 Boolean winner = false; //this will be set equal to the check for win function
 string playerChoice = "";
 string playerName = "";
+char[,] boardArray = {
+            { ' ', ' ', ' ' },
+            { ' ', ' ', ' ' },
+            { ' ', ' ', ' ' }
+        };
 
 BoardClass bc = new BoardClass();
 
@@ -58,6 +63,7 @@ do
     while (chosenPositions.Contains(playerChoice))
     {
         Console.WriteLine("Error: Position already chosen. Please choose a new position.");
+        Console.WriteLine("ERROR IS HERE");
 
         // Ask for new coordinates
         do
@@ -78,9 +84,9 @@ do
             }
         } while (position2 < 0 || position2 > 2);
 
-        //playerChoice = position1 + "" + position2;
+        playerChoice = position1 + ", " + position2;
 
-        Console.WriteLine(playerChoice);
+        //Console.WriteLine(playerChoice);
     }
 
 
@@ -106,11 +112,7 @@ do
     Console.WriteLine(sign);
 
     // Initialize an empty 3x3 board
-    char[,] boardArray = {
-            { ' ', ' ', ' ' },
-            { ' ', ' ', ' ' },
-            { ' ', ' ', ' ' }
-        };
+   
 
     bc.DefineMoves(boardArray, board, sign);
     bc.PrintTicTacToe(boardArray);

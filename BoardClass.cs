@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Mission_4
 
@@ -13,19 +14,29 @@ namespace Mission_4
     {
         public void DefineMoves(char[,] board, List<string> moves, string sign)
         {
+
+            int latestEnteredIndex = moves.Count - 1;
+
+
+
             foreach (var move in moves)
             {
-                //Parse coordinates from the string
-                int row = int.Parse(move[0].ToString());
-                int col = int.Parse(move[3].ToString());
-
-                if (sign == "X")
-                { 
-                    board[row, col] = 'X';
-                }
-                else
+                if (moves.IndexOf(move) == latestEnteredIndex)
                 {
-                    board[row, col] = '0';
+                    {
+                        //Parse coordinates from the string
+                        int row = int.Parse(move[0].ToString());
+                        int col = int.Parse(move[3].ToString());
+
+                        if (sign == "X")
+                        {
+                            board[row, col] = 'X';
+                        }
+                        else
+                        {
+                            board[row, col] = '0';
+                        }
+                    }
                 }
             }
         }
