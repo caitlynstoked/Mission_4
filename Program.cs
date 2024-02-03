@@ -103,25 +103,6 @@ do
 
 
 
-//char[,] board = new char[3, 3];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//new value = sign
-//prints out board
-;
-
 
 
 
