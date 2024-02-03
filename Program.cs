@@ -3,5 +3,13 @@ using Mission_4;
 
 Supporting s = new Supporting();
 
-s.TicTacPrint();
+//s.TicTacPrint();
 
+char[,] board = {
+    {'X', 'O', 'X'},
+    {' ', 'X', 'O'},
+    {'X', 'O', ' '}
+};
+
+
+Console.WriteLine(s.CheckWinner(board));

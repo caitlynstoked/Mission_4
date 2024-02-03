@@ -38,13 +38,13 @@ namespace Mission_4
          }
         */
 
-        public string TicTacPrint()//pass the array gathered from the driver team
+        public string TicTacPrint() // pass the array gathered from the driver team
         {
-            // board = p.BoardPositions(); //calling from the program
+            // board = p.BoardPositions(); // calling from the program
 
             Console.WriteLine(" This is the Tic Tac Toe Board:");
 
-            //1print current boad in a string
+            // 1print current board in a string
             string A = "X";
             string B = "0";
             string C = "0";
@@ -61,69 +61,62 @@ namespace Mission_4
 
             return printBoard;
 
+            // 2then change the letters to Xs and Os depending on positions. in an if 2,2 then replace position to x
 
-
-            //2then change the letters to Xs and Os deppending on positions. in an if if 2,2 then replace position to x
-
-            //3return the board again and the guys will ask y to go 
-
+            // 3return the board again and the guys will ask why to go
         }
-        static char CheckWinner(char[,] board)
+
+
+        public bool CheckWinner(char[,] board)
         {
             bool isWinner = false;
-            string winnerName = "";
+            string whoWon = "";
 
-
-            do
+            for (int i = 0; i < 3; i++)
             {
-
-                for (int i = 0; i < 3; i++)
+                // winner check in a row
+                if (board[i, 0] == board[i, 1] && board[i, 1] == board[i, 2] && board[i, 0] != ' ')
                 {
-                    //winner check in a row
-                    if (board[i, 0] == board[i, 1] && board[i, 1] == board[i, 2] && board[i, 0] != ' ')
-                    {
-                        // nameOfWinner = Console.WriteLine($"The Winner is: {board[i, 0]}!!");
-                        isWinner = true;
-                        winnerName = board[i, 0].ToString();
-                        Console.WriteLine($"The winner is: {winnerName}!!");
+                    isWinner = true;
+                    whoWon = board[i, 0].ToString();
+                }
 
-                        return board[i, 0];
-                    }
+                // winner check for column
+                else if (board[0, i] == board[1, i] && board[1, i] == board[2, i] && board[0, i] != ' ')
+                {
+                    isWinner = true;
+                    whoWon = board[0, i].ToString();
 
-                    //winner check for column
-                    if (board[0, i] == board[1, i] && board[1, i] == board[2, i] && board[0, i] != ' ')
-                    {
-                        isWinner = true;
-                        winnerName = board[0, i].ToString();
-                        Console.WriteLine($"The winner is: {winnerName}!!");
+                }
 
-                        return board[0, i];
+                // check for diagonal
+                else if (board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2] && board[0, 0] != ' ')
+                {
+                    isWinner = true;
+                    whoWon = board[0, 0].ToString();
 
-                    }
+                }
 
-                    //check for diagnal
-                    if (board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2] && board[0, 0] != ' ')
-                    {
-                        isWinner = true;
-                        winnerName = board[0, 0].ToString();
-                        Console.WriteLine($"The winner is: {winnerName}!!");
+                else if (board[0, 2] == board[1, 1] && board[1, 1] == board[2, 0] && board[0, 2] != ' ')
+                {
+                    isWinner = true;
+                    whoWon = board[0, 2].ToString();
 
-                        return board[0, 0];
-                    }
+                }
 
-                    if (board[0, 2] == board[1, 1] && board[1, 1] == board[2, 0] && board[0, 2] != ' ')
-                    {
-                        isWinner = true;
-                        winnerName = board[0, 2].ToString();
-                        Console.WriteLine($"The winner is: {winnerName}!!");
-                        return board[0, 2];
-                    }
-                    else
-                    {
-                        Console.WriteLine("There was no winners, try again next time!");
-                        return ' ';
-                    }
-
-                } while (isWinner = false);
             }
-}      
+            //prints who won 
+            if (isWinner==true) 
+            {
+                Console.WriteLine($"The Winner is: {whoWon}!!");
+            }
+            else if (isWinner==false) 
+            {
+                Console.WriteLine("There is no winner, try again!");
+            }
+           
+            return isWinner;
+            
+        }
+    }
+}
